@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/myaccFragment">
+
+    <fragment
+        android:id="@+id/myaccFragment"
+        android:name="com.example.prime_paradise.AccountsFragment"
+        android:label="My Account"
+        tools:layout="@layout/fragment_accounts" />
+    <fragment
+        android:id="@+id/wearFragment"
+        android:name="com.example.prime_paradise.WearFragment"
+        android:label="Wearables"
+        tools:layout="@layout/fragment_wear" />
+    <fragment
+        android:id="@+id/furnFragment"
+        android:name="com.example.prime_paradise.FurnFragment"
+        android:label="Furniture"
+        tools:layout="@layout/fragment_furn" />
+    <fragment
+        android:id="@+id/elecFragment"
+        android:name="com.example.prime_paradise.ElecFragment"
+        android:label="Electronics"
+        tools:layout="@layout/fragment_elec" />
+    <fragment
+        android:id="@+id/grocFragment"
+        android:name="com.example.prime_paradise.GrocFragment"
+        android:label="Groceries"
+        tools:layout="@layout/fragment_groc" />
+</navigation>
