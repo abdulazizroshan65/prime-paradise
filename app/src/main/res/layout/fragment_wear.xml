@@ -114,6 +114,19 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/txtSugget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginStart="270dp"
+            android:text="Suggest"
+            android:textColor="#2196F3"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+
+        <TextView
             android:id="@+id/txtGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

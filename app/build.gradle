@@ -60,4 +60,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.github.duanhong169:colorpicker:1.1.6'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+//    implementation 'com.github.taisukeoe:pmml4s-core:1.0.1'
+    // https://mvnrepository.com/artifact/org.pmml4s/pmml4s
+    implementation 'org.pmml4s:pmml4s_2.12:0.9.4'
+
+
 }

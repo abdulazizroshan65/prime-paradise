@@ -7,9 +7,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -29,8 +31,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.pmml4s.model.Model;
+
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Map;
 
 import top.defaults.colorpicker.ColorPickerPopup;
 
@@ -90,6 +97,7 @@ public class WearFragment extends Fragment {
     Button btnIns, btnUpd,btnDlt,btnClearall;
     RadioGroup rdogrpCateg, rdogrpGender;
     RadioButton rbCloth, rbShoe, rbMale, rbFemale;
+    TextView txtSugget;
 
     String category="", gender;
 
@@ -111,6 +119,7 @@ public class WearFragment extends Fragment {
         rbFemale = root.findViewById(R.id.rbFemale);
         rbCloth = root.findViewById(R.id.rbCloth);
         rbShoe = root.findViewById(R.id.rbShoe);
+        txtSugget = root.findViewById(R.id.txtSugget);
 
         rbMale.setOnClickListener(new View.OnClickListener()
         {
@@ -341,6 +350,32 @@ public class WearFragment extends Fragment {
                 }
 
 
+            }
+        });
+
+        txtSugget.setOnClickListener(new View.OnClickListener()
+        {
+            @RequiresApi(api = Build.VERSION_CODES.R)
+            @Override
+            public void onClick(View v)
+            {
+                //final Model model = Model.fromFile(WearFragment.class.getClassLoader().getResource("model.pmml").getFile());
+
+                File file = new File("model.pmml");
+                Model model = Model.fromFile(file);
+
+                Map<String, Integer> values = Map.of(
+                        "category", 20,
+                        "market_price", 1500
+                );
+
+                Object[] valuesMap = Arrays.stream(model.inputNames())
+                        .map(values::get)
+                        .toArray();
+
+                Object[] result = model.predict(valuesMap);
+                Log.i("predicted", " : "+result);
+                txtprice.setText("predicted : "+result);
             }
         });
 
