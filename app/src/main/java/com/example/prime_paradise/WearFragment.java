@@ -1,28 +1,17 @@
 package com.example.prime_paradise;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.graphics.Color;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,14 +20,34 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.pmml4s.model.Model;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Map;
+import java.io.InputStream;
+import java.util.ArrayList;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import java.io.IOException;
 import top.defaults.colorpicker.ColorPickerPopup;
 
 /**
@@ -97,7 +106,7 @@ public class WearFragment extends Fragment {
     Button btnIns, btnUpd,btnDlt,btnClearall;
     RadioGroup rdogrpCateg, rdogrpGender;
     RadioButton rbCloth, rbShoe, rbMale, rbFemale;
-    TextView txtSugget;
+    TextView txtSuggest;
 
     String category="", gender;
 
@@ -119,7 +128,54 @@ public class WearFragment extends Fragment {
         rbFemale = root.findViewById(R.id.rbFemale);
         rbCloth = root.findViewById(R.id.rbCloth);
         rbShoe = root.findViewById(R.id.rbShoe);
-        txtSugget = root.findViewById(R.id.txtSugget);
+        txtSuggest = root.findViewById(R.id.txtSuggest);
+
+
+        txtSuggest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create a new thread to execute the network request
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            // Execute the OkHttp request
+                            OkHttpClient client = new OkHttpClient();
+                                    Request request = new Request.Builder()
+                                    .url("http://192.168.8.101:5000/?category=3&market_price="+txtprice.getText().toString())
+                                    .build();
+                            Response response = client.newCall(request).execute();
+                            Log.d("url ===> ", "http://192.168.8.101:5000/?category=3&market_price="+txtprice.getText().toString());
+                            // Get the response body as a string
+                            String responseBody = response.body().string();
+
+                            Gson gson = new Gson();
+                            JsonObject jsonResponse = gson.fromJson(responseBody, JsonObject.class);
+                            JsonElement sale_price = jsonResponse.get("sale_price");
+                            String saleprice = sale_price.toString().replaceAll("[\\[\\]\"]", "");
+                            double result = Double.parseDouble(saleprice);
+                            double r = (double) (int) result;
+
+                            // Do something with the response body (e.g. update UI)
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // Update UI with response body
+                                    Log.d("Sales Price ====> ", ""+r);
+                                    Log.d("Response Body ====> ", responseBody);
+                                    TextView txtPrice = root.findViewById(R.id.txtPrice);
+                                    txtPrice.setText(""+r);
+                                }
+                            });
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
+
 
         rbMale.setOnClickListener(new View.OnClickListener()
         {
@@ -353,31 +409,48 @@ public class WearFragment extends Fragment {
             }
         });
 
-        txtSugget.setOnClickListener(new View.OnClickListener()
-        {
-            @RequiresApi(api = Build.VERSION_CODES.R)
-            @Override
-            public void onClick(View v)
-            {
-                //final Model model = Model.fromFile(WearFragment.class.getClassLoader().getResource("model.pmml").getFile());
+//        txtSuggest.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+////                String url = "http://192.168.8.101:5000/";
+////                String json = "{\"category\": \"electronics\", \"market_price\": 100}";
+////
+////                try {
+////                    String response = getRequest(url, json);
+////                    System.out.println(response);
+////                } catch (IOException e) {
+////                    e.printStackTrace();
+////                }
+//
+//                    String result;
+//                try {
+////                    URL url = new URL("http://192.168.8.101:5000/");
+////                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+////                    conn.setRequestMethod("GET");
+////
+////                    // Read the response
+////                    InputStream in = new BufferedInputStream(conn.getInputStream());
+////                    result = convertStreamToString(in);
+//
+////                    HttpGetTask test = new HttpGetTask();
+////                    String data = test.doInBackground("http://192.168.8.101:5000/");
+////                    Log.d("junda", "junda started ");
+//                    RetrofitClient test = new RetrofitClient();
+////                    test.getInstance();
+//
+//
+//                    Log.d("result", "Result3: " + test.getMyApi());
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        });
 
-                File file = new File("model.pmml");
-                Model model = Model.fromFile(file);
 
-                Map<String, Integer> values = Map.of(
-                        "category", 20,
-                        "market_price", 1500
-                );
-
-                Object[] valuesMap = Arrays.stream(model.inputNames())
-                        .map(values::get)
-                        .toArray();
-
-                Object[] result = model.predict(valuesMap);
-                Log.i("predicted", " : "+result);
-                txtprice.setText("predicted : "+result);
-            }
-        });
 
         btnClearall = root.findViewById(R.id.btnClearall);
         btnClearall.setOnClickListener(new View.OnClickListener()
@@ -614,6 +687,55 @@ public class WearFragment extends Fragment {
             }
         }
 
+    }
+
+    public static String getRequest(String url, String json) throws IOException {
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+        // Set the request method to POST and content type to JSON
+        con.setRequestMethod("GET");
+//        con.setRequestProperty("Content-Type", "application/json");
+
+        // Enable output (sending data to the server)
+        con.setDoOutput(true);
+
+        // Write the JSON data to the output stream
+        OutputStream outputStream = con.getOutputStream();
+        outputStream.write(json.getBytes());
+        outputStream.flush();
+        outputStream.close();
+
+        // Read the response from the server
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        return response.toString();
+    }
+
+    private String convertStreamToString(InputStream is) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append('\n');
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
     }
 
     public void clr(){
