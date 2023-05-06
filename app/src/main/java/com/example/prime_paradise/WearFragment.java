@@ -106,7 +106,7 @@ public class WearFragment extends Fragment {
     Button btnIns, btnUpd,btnDlt,btnClearall;
     RadioGroup rdogrpCateg, rdogrpGender;
     RadioButton rbCloth, rbShoe, rbMale, rbFemale;
-    TextView txtSuggest;
+    TextView txtSuggest, tvPredictConfirm;
 
     String category="", gender;
 
@@ -129,7 +129,7 @@ public class WearFragment extends Fragment {
         rbCloth = root.findViewById(R.id.rbCloth);
         rbShoe = root.findViewById(R.id.rbShoe);
         txtSuggest = root.findViewById(R.id.txtSuggest);
-
+        tvPredictConfirm = root.findViewById(R.id.tvPredictConfirm);
 
         txtSuggest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,7 +145,6 @@ public class WearFragment extends Fragment {
                                     .url("http://192.168.8.101:5000/?category=3&market_price="+txtprice.getText().toString())
                                     .build();
                             Response response = client.newCall(request).execute();
-                            Log.d("url ===> ", "http://192.168.8.101:5000/?category=3&market_price="+txtprice.getText().toString());
                             // Get the response body as a string
                             String responseBody = response.body().string();
 
@@ -161,10 +160,10 @@ public class WearFragment extends Fragment {
                                 @Override
                                 public void run() {
                                     // Update UI with response body
-                                    Log.d("Sales Price ====> ", ""+r);
-                                    Log.d("Response Body ====> ", responseBody);
                                     TextView txtPrice = root.findViewById(R.id.txtPrice);
                                     txtPrice.setText(""+r);
+                                    tvPredictConfirm.setTextColor(Color.parseColor("#196F3D"));
+                                    tvPredictConfirm.setText("Suitable Price Predicted Successfully!!!");
                                 }
                             });
 
@@ -408,49 +407,6 @@ public class WearFragment extends Fragment {
 
             }
         });
-
-//        txtSuggest.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-////                String url = "http://192.168.8.101:5000/";
-////                String json = "{\"category\": \"electronics\", \"market_price\": 100}";
-////
-////                try {
-////                    String response = getRequest(url, json);
-////                    System.out.println(response);
-////                } catch (IOException e) {
-////                    e.printStackTrace();
-////                }
-//
-//                    String result;
-//                try {
-////                    URL url = new URL("http://192.168.8.101:5000/");
-////                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-////                    conn.setRequestMethod("GET");
-////
-////                    // Read the response
-////                    InputStream in = new BufferedInputStream(conn.getInputStream());
-////                    result = convertStreamToString(in);
-//
-////                    HttpGetTask test = new HttpGetTask();
-////                    String data = test.doInBackground("http://192.168.8.101:5000/");
-////                    Log.d("junda", "junda started ");
-//                    RetrofitClient test = new RetrofitClient();
-////                    test.getInstance();
-//
-//
-//                    Log.d("result", "Result3: " + test.getMyApi());
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
-
-
 
         btnClearall = root.findViewById(R.id.btnClearall);
         btnClearall.setOnClickListener(new View.OnClickListener()
@@ -748,9 +704,11 @@ public class WearFragment extends Fragment {
         mColorPreview2.setBackgroundColor(mDefaultColor);
         mColorPreview3.setBackgroundColor(mDefaultColor);
         mColorPreview4.setBackgroundColor(mDefaultColor);
-        imgPimg.setImageResource(R.drawable.ic_launcher_background);
-        imgPimg2.setImageResource(R.drawable.ic_launcher_background);
-        imgPimg3.setImageResource(R.drawable.ic_launcher_background);
-        imgPimg4.setImageResource(R.drawable.ic_launcher_background);
+        imgPimg.setImageResource(R.drawable.pp);
+        imgPimg2.setImageResource(R.drawable.pp);
+        imgPimg3.setImageResource(R.drawable.pp);
+        imgPimg4.setImageResource(R.drawable.pp);
+        tvPredictConfirm.setTextColor(Color.parseColor("#A6A0A0"));
+        tvPredictConfirm.setText("Click 'Suggest' to get suitable price!!!");
     }
 }

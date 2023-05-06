@@ -23,7 +23,10 @@
             android:label="@string/title_activity_sample_scrolling"
             android:theme="@style/Theme.Prime_Paradise.NoActionBar" />
         <activity android:name=".SplashActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".FurnitureActivity" />
         <activity android:name=".ClothActivity" />
@@ -40,10 +43,6 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".AdminActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ShoeActivity" />
         <activity

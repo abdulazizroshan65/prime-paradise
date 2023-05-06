@@ -148,7 +148,7 @@ public class ClothActivity extends AppCompatActivity {
                                 Toast.makeText(getBaseContext(),ex.getMessage(),Toast.LENGTH_SHORT).show();
                             }
                         }
-                        o.setOrderid(4);
+                        o.setOrderid(6);
                         o.setUname("selena_g");
                         o.setItems(1);
                         o.setCost(icost);

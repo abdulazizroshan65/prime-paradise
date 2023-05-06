@@ -379,8 +379,8 @@ public class FurnFragment extends Fragment {
         mColorPreview.setBackgroundColor(mDefaultColor);
         mColorPreview2.setBackgroundColor(mDefaultColor);
         mColorPreview3.setBackgroundColor(mDefaultColor);
-        imgPimg.setImageResource(R.drawable.ic_launcher_background);
-        imgPimg2.setImageResource(R.drawable.ic_launcher_background);
-        imgPimg3.setImageResource(R.drawable.ic_launcher_background);
+        imgPimg.setImageResource(R.drawable.pp);
+        imgPimg2.setImageResource(R.drawable.pp);
+        imgPimg3.setImageResource(R.drawable.pp);
     }
 }

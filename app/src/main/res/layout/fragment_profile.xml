@@ -33,8 +33,8 @@
     <ListView
         android:id="@+id/listOrder"
         android:layout_width="398dp"
-        android:layout_height="780dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="670dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wallpaper" />

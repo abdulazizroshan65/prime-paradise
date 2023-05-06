@@ -298,11 +298,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/nike01" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/nike01" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -364,12 +373,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/fchair01" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/fchair01" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -431,11 +448,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/elec01" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/elec01" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -497,11 +523,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/gas" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/gas" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -562,11 +597,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/mdress1" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/mdress1" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -627,12 +671,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/fdesk01" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/fdesk01" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -693,11 +745,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/elec11" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/elec11" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -758,11 +819,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/anchor" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/anchor" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -823,12 +893,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/fdress1" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/fdress1" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -889,12 +967,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/ftable01" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ftable01" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -955,11 +1041,20 @@
                         android:layout_margin="16dp"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/elec21" />
+                            app:cardCornerRadius="8dp"
+                            android:layout_margin="5dp"
+                            android:elevation="10dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/elec21" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"

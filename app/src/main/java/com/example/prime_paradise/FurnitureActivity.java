@@ -190,7 +190,7 @@ public class FurnitureActivity extends AppCompatActivity {
                             }
                         }
                         o = new Order();
-                        o.setOrderid(4);
+                        o.setOrderid(6);
                         o.setUname("selena_g");
                         o.setItems(1);
                         o.setCost(icost);

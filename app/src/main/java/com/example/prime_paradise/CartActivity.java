@@ -113,7 +113,7 @@ public class CartActivity extends AppCompatActivity {
                             itemno=1;
                         }
 
-                        o.setOrderid(4);
+                        o.setOrderid(6);
                         o.setUname("selena_g");
                         o.setItems(temp);
                         o.setCost(totcost);
